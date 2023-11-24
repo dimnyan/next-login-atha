@@ -22,6 +22,7 @@ export default function Home() {
       Sign In
     </Link>
   );
+
   const buttonLogout = (
     <div
       className={styles.signInButton}
@@ -32,7 +33,9 @@ export default function Home() {
     </div>
   );
 
-  console.log({ data, status });
+  const nama = ", " + data?.user.name;
+
+  // console.log({ data, status });
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
@@ -45,7 +48,7 @@ export default function Home() {
         />
         <h1>
           Hello! <br />
-          Selamat Datang
+          Selamat Datang{data?.user?.name ? nama : ""}
         </h1>
       </div>
       <div className={styles.form}>
