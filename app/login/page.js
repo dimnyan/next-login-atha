@@ -1,11 +1,10 @@
 "use client";
 import Image from "next/image";
-import styles from "./page.module.css";
-import { signOut, useSession } from "next-auth/react";
+import styles from "./loginPage.module.css";
+import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
-export default function Home() {
+export default function LoginPage() {
   const { data, status } = useSession();
   const router = useRouter();
 
@@ -17,22 +16,6 @@ export default function Home() {
     router.push("/");
   }
 
-  const buttonSignIn = (
-    <Link href={"/login"} className={styles.signInButton} type="submit">
-      Sign In
-    </Link>
-  );
-  const buttonLogout = (
-    <div
-      className={styles.signInButton}
-      type="submit"
-      onClick={() => signOut()}
-    >
-      Log Out
-    </div>
-  );
-
-  console.log({ data, status });
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
@@ -48,10 +31,7 @@ export default function Home() {
           Selamat Datang
         </h1>
       </div>
-      <div className={styles.form}>
-        {status === "unauthenticated" ? buttonSignIn : buttonLogout}
-      </div>
-      {/* <div>
+      <div>
         <form className={styles.form}>
           <label className={styles.label}>Username</label>
           <input
@@ -85,7 +65,7 @@ export default function Home() {
         <div className={styles.signInLogo}>
           <Image src="/apple.svg" width={23} height={23} alt="" />
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }
