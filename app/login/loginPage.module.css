@@ -1,6 +1,8 @@
 .wrapper {
   margin: 20px;
   height: 100vh;
+  max-width: 320px;
+  margin: auto;
 }
 .header {
   display: flex;
@@ -37,7 +39,7 @@
 
 .signInButton {
   height: 54px;
-  margin: 10px 0;
+  margin: 100px 0 10px;
   font-size: 16px;
   font-weight: 600;
   border-radius: 5px;
@@ -58,6 +60,7 @@
   display: flex;
   width: 100%;
   gap: 5px;
+  margin-top: 40px;
 }
 
 .signInLogo {
@@ -69,4 +72,13 @@
   border: 1px solid rgba(128, 128, 128, 0.405);
   border-radius: 8px;
   cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    padding: 30px;
+    border: 1px solid #585123a0;
+    border-radius: 20px;
+    height: max-content;
+  }
 }
