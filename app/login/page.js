@@ -8,13 +8,15 @@ export default function LoginPage() {
   const { data, status } = useSession();
   const router = useRouter();
 
+  if (status == "authenticated") {
+    router.push("/");
+  }
+
   if (status == "loading") {
     return "loading";
   }
 
-  if (status === "authenticated") {
-    router.push("/");
-  }
+  // console.log(status);
 
   return (
     <div className={styles.wrapper}>
